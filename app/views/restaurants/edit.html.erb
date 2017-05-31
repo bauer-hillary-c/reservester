@@ -1,0 +1,27 @@
+<h1>Edit Restaurant #<% @restaurant.id %></h1>
+
+<%= form_for @restaurant do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+  </p>
+
+  <p>
+    <%= f.label :food_type %>
+    <%= f.text_field :food_type %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

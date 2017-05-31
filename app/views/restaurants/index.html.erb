@@ -15,6 +15,7 @@
       <td><%= r.phone_number %></td>
       <td><%= r.food_type %></td>
       <td><%= link_to 'View', restaurant_path(r.id) %></td>
+      <td><%= link_to 'Edit', edit_restaurant_path(r.id) %></td>
     </tr>
   <% end %>
 </table>

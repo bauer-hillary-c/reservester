@@ -21,4 +21,18 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
   end
+
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+
+    if @restaurant.update(params.require(:restaurant).permit(:name, :address, :food_type, :phone_number))
+      redirect_to @restaurant
+    else
+      render 'index'
+    end
+  end
 end
