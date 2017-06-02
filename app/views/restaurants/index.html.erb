@@ -16,6 +16,7 @@
       <td><%= r.food_type %></td>
       <td><%= link_to 'View', restaurant_path(r.id) %></td>
       <td><%= link_to 'Edit', edit_restaurant_path(r.id) %></td>
+      <td><%= image_tag r.photo.url(:thumb) %></td>
     </tr>
   <% end %>
 </table>
