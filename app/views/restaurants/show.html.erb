@@ -13,6 +13,7 @@
     <td><%= @restaurant.address %></td>
     <td><%= @restaurant.phone_number %></td>
     <td><%= @restaurant.food_type %></td>
+    <td><%= image_tag @restaurant.photo.url(:medium) %></td>
   </tr>
 </table>
 
