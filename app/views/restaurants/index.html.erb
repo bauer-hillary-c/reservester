@@ -6,6 +6,8 @@
     <th>Address</th>
     <th>Phone Number</th>
     <th>Food Type</th>
+    <th>Logo</th>
+    <th>Location</th>
   </tr>
 
   <% @restaurants.each do |r| %>
@@ -14,9 +16,10 @@
       <td><%= r.address %></td>
       <td><%= r.phone_number %></td>
       <td><%= r.food_type %></td>
+      <td><%= image_tag r.photo.url(:thumb) %></td>
+      <td><%= image_tag r.google_map(center: r.address) %></td>
       <td><%= link_to 'View', restaurant_path(r.id) %></td>
       <td><%= link_to 'Edit', edit_restaurant_path(r.id) %></td>
-      <td><%= image_tag r.photo.url(:thumb) %></td>
     </tr>
   <% end %>
 </table>

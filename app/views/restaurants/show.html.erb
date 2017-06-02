@@ -6,6 +6,8 @@
     <th>Address</th>
     <th>Phone Number</th>
     <th>Food Type</th>
+    <th>Logo</th>
+    <th>Location</th>
   </tr>
 
   <tr>
@@ -14,7 +16,7 @@
     <td><%= @restaurant.phone_number %></td>
     <td><%= @restaurant.food_type %></td>
     <td><%= image_tag @restaurant.photo.url(:medium) %></td>
-  </tr>
+    <td><%= image_tag @restaurant.google_map(center: @restaurant.address) %></td>
 </table>
 
 <p>
