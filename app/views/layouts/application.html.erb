@@ -9,8 +9,18 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-info") %>
+    <% end %>
+
+    <div class='login-out'>
+      <% if owner_signed_in? %>
+        <%= link_to 'Log Out', destroy_owner_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% else %>
+        <%= link_to 'Log In', new_owner_session_path %> | <%= link_to 'Sign Up', new_owner_registration_path %>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
