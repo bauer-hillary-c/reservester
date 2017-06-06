@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Owner<th>
     <th>Address</th>
     <th>Phone Number</th>
     <th>Food Type</th>
@@ -12,6 +13,7 @@
 
   <tr>
     <td><%= @restaurant.name %></td>
+    <td><%= @restaurant.owner.name %></td>
     <td><%= @restaurant.address %></td>
     <td><%= @restaurant.phone_number %></td>
     <td><%= @restaurant.food_type %></td>
