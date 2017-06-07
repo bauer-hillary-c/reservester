@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170605205503) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170605205503) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.index ["email"], name: "index_owners_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_owners_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170605205503) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "owner_id"
-    t.index ["owner_id"], name: "index_restaurants_on_owner_id"
+    t.index ["owner_id"], name: "index_restaurants_on_owner_id", using: :btree
   end
 
 end
