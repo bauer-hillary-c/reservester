@@ -2,7 +2,7 @@ class Restaurant < ApplicationRecord
   validates :name, presence: true, length: {minimum: 2}
   validates :address, presence: true, length: {minimum: 10}
   validates :phone_number, presence: true, length: {minimum: 10}
-  validates :genre, presence: true, length: {minimum: 2}
+  validates :food_type, presence: true, length: {minimum: 2}
 
   geocoded_by :address
   after_validation :geocode
