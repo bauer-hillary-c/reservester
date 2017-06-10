@@ -11,6 +11,7 @@ class Restaurant < ApplicationRecord
   validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   belongs_to :owner
+  has_many :reservations
 
   def google_map(center)
     "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
