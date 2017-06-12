@@ -1,0 +1,21 @@
+<h1>All Reservations for <%= @restaurant.name %></h1>
+
+<table>
+  <tr>
+    <th>Guest Name</th>
+    <th>Event at</th>
+    <th>Guest's Note</th>
+  </tr>
+
+  <% @reservations.each do |res| %>
+    <tr>
+      <td><%= res.guest_name %></td>
+      <td><%= res.event_at %></td>
+      <td><%= res.notes %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to 'Create New Reservation', new_restaurant_reservation_path %>
+</p>

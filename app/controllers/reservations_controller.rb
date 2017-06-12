@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:index]
 
   def new
     
@@ -19,7 +20,7 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.all
+    @reservations = @restaurant.reservations
   end
 
   def edit
@@ -47,6 +48,8 @@ class ReservationsController < ApplicationController
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
-end
 
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
 end
