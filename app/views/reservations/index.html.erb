@@ -6,6 +6,7 @@
     <th>Event Date</th>
     <th>Event Time</th>
     <th>Guest's Note</th>
+    <th>Status</th>
   </tr>
 
   <% @reservations.each do |res| %>
@@ -14,6 +15,13 @@
       <td><%= res.event_on %></td>
       <td><%= res.event_time %></td>
       <td><%= res.notes %></td>
+      <td>
+        <% if res.approved %>
+          Approved
+        <% else %>
+          Rejected
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

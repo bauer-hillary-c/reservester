@@ -19,6 +19,7 @@
     <td><%= @restaurant.food_type %></td>
     <td><%= image_tag @restaurant.photo.url(:medium) %></td>
     <td><%= image_tag @restaurant.google_map(center: @restaurant.address) %></td>
+    <td><%= link_to "View reservations", restaurant_reservations_path(@restaurant) %></td>
 </table>
 
 <p>
