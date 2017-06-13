@@ -8,9 +8,10 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    @reservation.restaurant_id = @restaurant.id
 
     if @reservation.save
-      redirect_to @reservation
+      redirect_to @restaurant
     else
       render 'new'
     end
@@ -42,7 +43,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:restaurant_id, :event_at, :guest_name, :notes)
+    params.require(:reservation).permit(:restaurant_id, :guest_name, :notes, :event_on, :event_time)
   end
 
   def set_reservation
