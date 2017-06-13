@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :find_restaurant, only: [:index]
+  before_action :find_restaurant, only: [:index, :new, :create]
 
   def new
     

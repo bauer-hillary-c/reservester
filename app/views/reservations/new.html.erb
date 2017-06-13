@@ -1,0 +1,31 @@
+<h1>New Reservation for <%= @restaurant.name %></h1>
+
+<%= form_for :reservation, url: restaurant_reservations_path, html: { multipart: true } do |f| %>
+  <p>
+    <%= f.label :guest_name %>
+    <%= f.text_field :guest_name %>
+  </p>
+
+  <p>
+    <%= f.label :event_on %>
+    <%= f.date_select :event_on %>
+  </p>
+
+  <p>
+    <%= f.label :event_time %>
+    <%= f.time_select :event_time %>
+  </p>
+
+  <p>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to 'View All', restaurant_reservations_path %>
+</p>
