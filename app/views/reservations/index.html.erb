@@ -1,11 +1,12 @@
 <h1>All Reservations for <%= @restaurant.name %></h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Guest Name</th>
     <th>Event Date</th>
     <th>Event Time</th>
     <th>Guest's Note</th>
+    <th colspan="2"></th>
   </tr>
 
   <% @reservations.each do |res| %>
@@ -14,12 +15,12 @@
       <td><%= res.event_on %></td>
       <td><%= res.event_time %></td>
       <td><%= res.notes %></td>
-      <td><%= link_to "View", restaurant_reservation_path(@restaurant.id, res.id) %></td>
-      <td><%= link_to "Delete", [@restaurant, res], method: :delete %></td>
+      <td><%= link_to "View", restaurant_reservation_path(@restaurant.id, res.id), class: "btn btn-primary" %></td>
+      <td><%= link_to "Delete", [@restaurant, res], method: :delete, class: "btn btn-primary" %></td>
     </tr>
   <% end %>
 </table>
 
 <p>
-  <%= link_to 'Create New Reservation', new_restaurant_reservation_path %>
+  <%= link_to 'Create New Reservation', new_restaurant_reservation_path, class: "btn btn-primary" %>
 </p>
