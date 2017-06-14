@@ -22,6 +22,7 @@
           Rejected
         <% end %>
       </td>
+      <td><%= link_to "View", restaurant_reservation_path(@restaurant.id, res.id) %></td>
     </tr>
   <% end %>
 </table>

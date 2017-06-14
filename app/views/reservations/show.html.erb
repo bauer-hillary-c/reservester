@@ -1,2 +1,29 @@
+<h1>Reservation # <%= @reservation.id %></h1>
 
-<%= "http://localhost:3000/restaurants/#{Restaurant.last.id}/reservations/#{Reservation.last.id}" %>
+<table>
+  <tr>
+    <th>Guest Name</th>
+    <th>Event Date</th>
+    <th>Event Time</th>
+    <th>Guest's Note</th>
+    <th>Status</th>
+  </tr>
+
+  <tr>
+    <td><%= @reservation.guest_name %></td>
+    <td><%= @reservation.event_on %></td>
+    <td><%= @reservation.event_time %></td>
+    <td><%= @reservation.notes %></td>
+    <td>
+      <% if @reservation.approved %>
+        Approved
+      <% else %>
+        Rejected
+      <% end %>
+    </td>
+  </tr>
+</table>
+
+<p>
+  <%= link_to 'View All Reservations', restaurant_reservations_path %>
+</p>
