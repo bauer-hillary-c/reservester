@@ -11,6 +11,7 @@ class ReservationsController < ApplicationController
     @reservation.restaurant_id = @restaurant.id
 
     if @reservation.save
+      OwnerMailer.new_reservation_email(@reservation).deliver
       redirect_to @restaurant
     else
       render 'new'
