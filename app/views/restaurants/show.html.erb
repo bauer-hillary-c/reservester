@@ -1,27 +1,26 @@
-<h1>Restaurant #<%= @restaurant.id %></h1>
+<h1><%= @restaurant.name %></h1>
 
-<table>
+<table class="table">
   <tr>
-    <th>Name</th>
-    <th>Owner<th>
+    <th>Owner</th>
     <th>Address</th>
     <th>Phone Number</th>
     <th>Food Type</th>
     <th>Logo</th>
     <th>Location</th>
+    <th></th>
   </tr>
 
   <tr>
-    <td><%= @restaurant.name %></td>
     <td><%= @restaurant.owner.name %></td>
     <td><%= @restaurant.address %></td>
     <td><%= @restaurant.phone_number %></td>
     <td><%= @restaurant.food_type %></td>
-    <td><%= image_tag @restaurant.photo.url(:medium) %></td>
+    <td><%= image_tag @restaurant.photo.url(:thumb) %></td>
     <td><%= image_tag @restaurant.google_map(center: @restaurant.address) %></td>
-    <td><%= link_to "View reservations", restaurant_reservations_path(@restaurant) %></td>
+    <td><%= link_to "View reservations", restaurant_reservations_path(@restaurant), class: "btn btn-primary" %></td>
 </table>
 
 <p>
-  <%= link_to 'Back', restaurants_path %>
+  <%= link_to 'Back to All Restaurants', restaurants_path, class: "btn btn-primary" %>
 </p>
