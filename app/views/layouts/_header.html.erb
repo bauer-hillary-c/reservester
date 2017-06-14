@@ -16,13 +16,13 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Home", root_path %></li>
-      <li>
-        <% if owner_signed_in? %>
-          <%= link_to 'Log Out', destroy_owner_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% else %>
-          <%= link_to 'Log In', new_owner_session_path %> | <%= link_to 'Sign Up', new_owner_registration_path %>
-        <% end %>
-      </li>
+
+      <% if owner_signed_in? %>
+        <li><%= link_to 'Log Out', destroy_owner_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% else %>
+        <li><%= link_to 'Log In', new_owner_session_path %></li>
+        <li><%= link_to 'Sign Up', new_owner_registration_path %></li>
+      <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
