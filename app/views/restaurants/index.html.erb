@@ -20,12 +20,12 @@
       <td><%= r.food_type %></td>
       <td><%= image_tag r.photo.url(:thumb) %></td>
       <td><%= image_tag r.google_map(center: r.address) %></td>
-      <td><%= button_to 'View', restaurant_path(r.id), class: "btn btn-primary" %></td>
-      <td><%= button_to 'Edit', edit_restaurant_path(r.id), class: "btn btn-primary" %></td>
+      <td><%= link_to 'View', restaurant_path(r.id), class: "btn btn-primary" %></td>
+      <td><%= link_to 'Edit', edit_restaurant_path(r.id), class: "btn btn-primary" %></td>
     </tr>
   <% end %>
 </table>
 
 <p>
-  <%= button_to 'Create New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
+  <%= link_to 'Create New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
 </p>
