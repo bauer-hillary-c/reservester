@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :find_restaurant, only: [:index, :new, :create]
+  before_action :find_restaurant, only: [:index, :new, :create, :destroy]
 
   def new
     
@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    render 'index'
+    redirect_to @restaurant
   end
 
   private
