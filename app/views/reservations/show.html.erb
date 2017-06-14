@@ -6,7 +6,6 @@
     <th>Event Date</th>
     <th>Event Time</th>
     <th>Guest's Note</th>
-    <th>Status</th>
   </tr>
 
   <tr>
@@ -14,13 +13,6 @@
     <td><%= @reservation.event_on %></td>
     <td><%= @reservation.event_time %></td>
     <td><%= @reservation.notes %></td>
-    <td>
-      <% if @reservation.approved %>
-        Approved
-      <% else %>
-        Rejected
-      <% end %>
-    </td>
   </tr>
 </table>
 
