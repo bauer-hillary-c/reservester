@@ -1,6 +1,6 @@
 <h1>Reservation # <%= @reservation.id %></h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Guest Name</th>
     <th>Event Date</th>
@@ -17,5 +17,5 @@
 </table>
 
 <p>
-  <%= link_to 'View All Reservations', restaurant_reservations_path %>
+  <%= link_to 'View All Reservations', restaurant_reservations_path, class: "btn btn-primary" %>
 </p>
