@@ -12,15 +12,10 @@
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
     <% end %>
+    <div class="container">
+      <%= render "layouts/header" %>
 
-    <div class='login-out'>
-      <% if owner_signed_in? %>
-        <%= link_to 'Log Out', destroy_owner_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% else %>
-        <%= link_to 'Log In', new_owner_session_path %> | <%= link_to 'Sign Up', new_owner_registration_path %>
-      <% end %>
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>
