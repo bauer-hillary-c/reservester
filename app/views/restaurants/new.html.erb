@@ -1,36 +1,57 @@
-<h1>New Restaurant</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h1>New Restaurant</h1>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= form_for :restaurant, url: restaurants_path, html: { multipart: true } do |f| %>
+      <div class="form-group">
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </p>
+      </div>
 
-<%= form_for :restaurant, url: restaurants_path, html: { multipart: true } do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :phone_number %>
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :food_type %>
+          <%= f.text_field :food_type, class: "form-control" %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :food_type %>
-    <%= f.text_field :food_type %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :photo %>
+          <%= f.file_field :photo %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.submit "Save Restaurant", class: "btn btn-primary" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<p>
-  <%= link_to 'View All', restaurants_path %>
-</p> 
+  <div class="panel-footer">
+    <p>
+      <%= link_to 'View All', restaurants_path %>
+    </p>
+  </div> 
+</div>
