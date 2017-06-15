@@ -1,31 +1,50 @@
-<h1>New Reservation for <%= @restaurant.name %></h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h1>New Reservation for <%= @restaurant.name %></h1>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= form_for :reservation, url: restaurant_reservations_path, html: { multipart: true } do |f| %>
+      <div class="form-group">
+        <p>
+          <%= f.label :guest_name %>
+          <%= f.text_field :guest_name, class: "form-control" %>
+        </p>
+      </div>
 
-<%= form_for :reservation, url: restaurant_reservations_path, html: { multipart: true } do |f| %>
-  <p>
-    <%= f.label :guest_name %>
-    <%= f.text_field :guest_name %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :event_on %>
+          <%= f.text_field :event_on, class: "form-control" %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :event_on %>
-    <%= f.text_field :event_on %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :event_time %>
+          <%= f.text_field :event_time, class: "form-control" %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :event_time %>
-    <%= f.text_field :event_time %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.label :notes %>
+          <%= f.text_area :notes, class: "form-control" %>
+        </p>
+      </div>
 
-  <p>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %>
-  </p>
+      <div class="form-group">
+        <p>
+          <%= f.submit "Save Reservation", class: "btn btn-primary" %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<p>
-  <%= link_to 'View All', restaurant_reservations_path %>
-</p>
+  <div class="panel-footer">
+    <p>
+      <%= link_to 'View All', restaurant_reservations_path %>
+    </p>
+  </div>
+</div>
