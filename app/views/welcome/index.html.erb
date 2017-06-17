@@ -1,7 +1,7 @@
 <div class="jumbotron center">
   <h1>Welcome to Reservester!</h1>
   <% if owner_signed_in? %>
-    View Dashboard
+    <%= link_to "View Dashboard", owner_dashboard_path(owner_id: current_owner.id) %>
   <% elsif user_signed_in? %>
     <%= link_to "View Reservations", restaurant_reservations_path %>  
   <% else %>
