@@ -3,13 +3,13 @@
   <% if owner_signed_in? %>
     <div style="padding-top: 35px;">
       <p>
-        <%= link_to "View Dashboard", owner_dashboard_path(owner_id: current_owner.id) %>
+        <%= link_to "View Dashboard", owner_dashboard_path(owner_id: current_owner.id), class: "btn btn-primary" %>
       </p>
     </div>
   <% elsif user_signed_in? %>
     <div style="padding-top: 35px;">
       <p>
-        <%= link_to "View Reservations", user_dashboard_path(user_id: current_user.id) %>  
+        <%= link_to "View Reservations", user_dashboard_path(user_id: current_user.id), class: "btn btn-primary" %>  
       </p>
     </div>
   <% else %>
@@ -21,7 +21,7 @@
 
   <div style="padding-top: 30px;">
     <p>
-      <%= link_to "View Restaurants", restaurants_path %>
+      <%= link_to "View Restaurants", restaurants_path, class: "btn btn-primary" %>
     </p>
   </div>
 </div>
