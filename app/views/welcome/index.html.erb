@@ -1,13 +1,19 @@
 <div class="jumbotron center">
   <h1>Welcome to Reservester!</h1>
   <% if owner_signed_in? %>
-    <%= link_to 'View Restaurants', restaurants_path %>
+    View Dashboard
+  <% elsif user_signed_in? %>
+    <%= link_to "View Reservations", restaurants_reservations_path %>  
   <% else %>
     <p>
-      <%= link_to "Log in", new_owner_session_path, class: "btn btn-default btn-large" %>
-      <%= link_to "Sign up", new_owner_registration_path, class: "btn btn-primary btn-large" %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-large" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-large" %>
     </p>
   <% end %>
+
+  <p>
+    <%= link_to "View Restaurants", restaurants_path %>
+  </p>
 </div>
 
 
