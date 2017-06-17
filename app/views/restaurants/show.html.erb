@@ -33,6 +33,10 @@
 
 <% if current_user.present? %>
   <p>
-    <%= link_to "Favorite", favorite_restaurant_path(@restaurant), method: :put, remote: true, class: "btn btn-primary" %>
+    <% if Favorite.exists?(restaurant: @restaurant, user: current_user) %>
+      <%= link_to "Unfavorite", favorite_restaurant_path(@restaurant, type: "unfavorite"), method: :put, remote: true, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Favorite", favorite_restaurant_path(@restaurant, type: "favorite"), method: :put, remote: true, class: "btn btn-primary" %>
+    <% end %>
   </p>
 <% end %>

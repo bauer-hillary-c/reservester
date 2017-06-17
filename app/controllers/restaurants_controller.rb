@@ -41,7 +41,13 @@ class RestaurantsController < ApplicationController
   end
 
   def favorite
-    Favorite.create(restaurant: @restaurant, user: current_user)
+    if params[:type] == "favorite"
+      Favorite.create(restaurant: @restaurant, user: current_user)
+      redirect_to @restaurant, notice: "Favorited!"
+    else
+      @restaurant.favoritors.delete(current_user)
+      redirect_to @restaurant, notice: "Unfavorited :c"
+    end
   end
 
   private
