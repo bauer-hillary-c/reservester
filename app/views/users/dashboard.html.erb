@@ -1,0 +1,21 @@
+<h1>Your Reservations</h1>
+
+<table class="table">
+  <tr>
+    <th>Restaurant</th>
+    <th>Event Date</th>
+    <th>Event Time</th>
+    <th>Guest's Note</th>
+    <th></th>
+  </tr>
+
+  <% @reservations.each do |res| %>
+    <tr>
+      <td><%= res.restaurant.name %></td>
+      <td><%= res.event_on %></td>
+      <td><%= res.event_time %></td>
+      <td><%= res.notes %></td>
+      <td><%= link_to "View", restaurant_reservation_path(res.restaurant_id, res.id), class: "btn btn-primary" %></td>
+    </tr>
+  <% end %>
+</table>

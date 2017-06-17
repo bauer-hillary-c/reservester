@@ -9,7 +9,7 @@
   <% elsif user_signed_in? %>
     <div style="padding-top: 35px;">
       <p>
-        <%= link_to "View Reservations", restaurant_reservations_path %>  
+        <%= link_to "View Reservations", user_dashboard_path(user_id: current_user.id) %>  
       </p>
     </div>
   <% else %>
