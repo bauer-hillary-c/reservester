@@ -7,7 +7,6 @@
     <th>Phone Number</th>
     <th>Food Type</th>
     <th>Logo</th>
-    <th>Location</th>
     <th colspan="2"></th>
   </tr>
 
@@ -18,13 +17,18 @@
       <td><%= r.phone_number %></td>
       <td><%= r.food_type %></td>
       <td><%= image_tag r.photo.url(:thumb) %></td>
-      <td><%= image_tag r.google_map(center: r.address) %></td>
       <td><%= link_to 'View', restaurant_path(r.id), class: "btn btn-primary" %></td>
-      <td><%= link_to 'Edit', edit_restaurant_path(r.id), class: "btn btn-primary" %></td>
+      <td>
+        <% if current_owner == r.owner %>
+          <%= link_to 'Edit', edit_restaurant_path(r.id), class: "btn btn-primary" %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
 
-<p>
-  <%= link_to 'Create New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
-</p>
+<% if current_owner.present? %>
+  <p>
+    <%= link_to 'Create New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
+  </p>
+<% end %>

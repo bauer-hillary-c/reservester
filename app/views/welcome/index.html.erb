@@ -3,7 +3,7 @@
   <% if owner_signed_in? %>
     View Dashboard
   <% elsif user_signed_in? %>
-    <%= link_to "View Reservations", restaurants_reservations_path %>  
+    <%= link_to "View Reservations", restaurant_reservations_path %>  
   <% else %>
     <p>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-large" %>
@@ -11,9 +11,11 @@
     </p>
   <% end %>
 
-  <p>
-    <%= link_to "View Restaurants", restaurants_path %>
-  </p>
+  <div style="padding-top: 50px;">
+    <p>
+      <%= link_to "View Restaurants", restaurants_path %>
+    </p>
+  </div>
 </div>
 
 

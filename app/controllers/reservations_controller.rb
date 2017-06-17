@@ -9,6 +9,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.restaurant_id = @restaurant.id
+    @reservation.user_id = current_user.try(:id)
 
     if @reservation.save
       OwnerMailer.new_reservation_email(@reservation).deliver
@@ -44,7 +45,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:restaurant_id, :guest_name, :notes, :event_on, :event_time)
+    params.require(:reservation).permit(:restaurant_id, :guest_name, :notes, :event_on, :event_time, :user_id)
   end
 
   def set_reservation

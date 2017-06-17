@@ -18,7 +18,13 @@
     <td><%= @restaurant.food_type %></td>
     <td><%= image_tag @restaurant.photo.url(:thumb) %></td>
     <td><%= image_tag @restaurant.google_map(center: @restaurant.address) %></td>
-    <td><%= link_to "View reservations", restaurant_reservations_path(@restaurant), class: "btn btn-primary" %></td>
+    <td>
+      <% if current_owner == @restaurant.owner %>
+        <%= link_to "View reservations", restaurant_reservations_path(@restaurant), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Make new reservation", new_restaurant_reservation_path(@restaurant), class: "btn btn-primary" %>
+      <% end %>
+    </td>
 </table>
 
 <p>
