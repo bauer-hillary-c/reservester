@@ -4,7 +4,6 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_owner!, only: [:edit, :update, :new, :create]
 
   def new
-    
   end
 
   def create

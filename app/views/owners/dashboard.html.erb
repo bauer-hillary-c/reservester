@@ -23,8 +23,6 @@
   <% end %>
 </table>
 
-<% if current_owner.present? %>
-  <p>
-    <%= link_to 'Create New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
-  </p>
-<% end %>
+<p>
+  <%= link_to 'Create New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
+</p>
