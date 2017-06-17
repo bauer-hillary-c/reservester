@@ -12,6 +12,8 @@ class Restaurant < ApplicationRecord
 
   belongs_to :owner
   has_many :reservations
+  has_many :favorites
+  has_many :favoritors, source: :user, through: :favorites
 
   def google_map(center)
     "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17"
