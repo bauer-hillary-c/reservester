@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :favorite]
   before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :authenticate_owner!, only: [:edit, :update, :new, :create]
 
@@ -38,6 +38,10 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     render 'index'
+  end
+
+  def favorite
+    Favorite.create(restaurant: @restaurant, user: current_user)
   end
 
   private

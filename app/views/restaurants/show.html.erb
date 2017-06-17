@@ -30,3 +30,9 @@
 <p>
   <%= link_to 'Back to All Restaurants', restaurants_path, class: "btn btn-primary" %>
 </p>
+
+<% if current_user.present? %>
+  <p>
+    <%= link_to "Favorite", favorite_restaurant_path(@restaurant), method: :put, remote: true, class: "btn btn-primary" %>
+  </p>
+<% end %>

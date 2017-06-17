@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
+  resources :restaurants do
+    put :favorite, on: :member
+  end
+
   get "owners/:owner_id/dashboard", to: "owners#dashboard", as: "owner_dashboard"
   get "users/:user_id/dashboard", to: "users#dashboard", as: "user_dashboard"
 
