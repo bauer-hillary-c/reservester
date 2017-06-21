@@ -20,6 +20,7 @@ gem 'pg'
 gem 'rspec'
 gem 'bootstrap-sass'
 gem 'omniauth-facebook'
+gem 'omniauth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
